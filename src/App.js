@@ -28,7 +28,6 @@ const App = props => {
 };
 
 const mapStateToProps = state => {
-  console.log("hi", state);
   return {
     state
   };
