@@ -15,7 +15,9 @@ export const intialState = {
   ]
 };
 
-export function reducer(state, action) {
+export function reducer(intialState, action) {
   switch (action.type) {
+    default:
+      return intialState;
   }
 }

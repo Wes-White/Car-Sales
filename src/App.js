@@ -3,9 +3,9 @@ import Header from "./components/Header";
 import AddedFeatures from "./components/AddedFeatures";
 import AdditionalFeatures from "./components/AdditionalFeatures";
 import Total from "./components/Total";
-import { intialState } from "./reducers/reducer";
+import { connect } from "react-redux";
 
-const App = () => {
+const App = props => {
   const removeFeature = item => {
     // dispatch an action here to remove an item
   };
@@ -13,24 +13,22 @@ const App = () => {
   const buyItem = item => {
     // dipsatch an action here to add an item
   };
+  const mapStateToProps = state => {
+    car: state.car;
+  };
 
   return (
     <div className="boxes">
       <div className="box">
-        <Header car={intialState.car} />
-        <AddedFeatures car={intialState.car} />
+        <Header car={props.car} />
+        <AddedFeatures car={props.car} />
       </div>
       <div className="box">
-        <AdditionalFeatures
-          additionalFeatures={intialState.additionalFeatures}
-        />
-        <Total
-          car={intialState.car}
-          additionalPrice={intialState.additionalPrice}
-        />
+        <AdditionalFeatures additionalFeatures={props.additionalFeatures} />
+        <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div>
     </div>
   );
 };
 
-export default App;
+export default connect(mapStateToProps, {})(App);
